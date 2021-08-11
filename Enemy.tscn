@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://characters/enemies/blockie.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemy.gd" type="Script" id=2]
+[ext_resource path="res://audio/digital_sfx/highDown.tres" type="AudioStream" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 221.797, 200.306 )
+
+[node name="Enemy" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="sprite" parent="." instance=ExtResource( 1 )]
+position = Vector2( -2.96991, 1.35193 )
+scale = Vector2( 6.36684, 6.2017 )
+frame = 1
+playing = true
+
+[node name="collision_shape_2d" type="CollisionShape2D" parent="."]
+position = Vector2( -2.7972, -0.69384 )
+shape = SubResource( 1 )
+
+[node name="deathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
